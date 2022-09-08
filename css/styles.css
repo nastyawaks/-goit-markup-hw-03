@@ -55,7 +55,7 @@ body {
 /* logo, menu and contacts header */
 
 .page-header {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .logo-link {
