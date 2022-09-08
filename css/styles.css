@@ -11,9 +11,17 @@
 
 /* шрифт 900,700,500,400 */
 
+/* html {
+  box-sizing: border-box;
+} */
+
+/* *, *::before, *::after {
+  box-sizing: inherit;
+} */
+
 :root {
   --primary-text-color: #757575;
-  --tittle-text-color: #212121;
+  --title-text-color: #212121;
   --link-color: #2196f3;
   --primary-white-color: #ffffff;
   --primary-black-color: #000000;
@@ -31,14 +39,33 @@ body {
 
 .list {
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  outline: 1px solid tomato;
 }
 
 /* logo, menu and contacts header */
 
+.page-header {
+  border-bottom: 1px solid;
+}
+
 .logo-link {
+  display: inline-block;
   text-decoration: none;
   font-size: 26px;
   line-height: 1.2;
+
+  padding-top: 24px;
+  padding-bottom: 25px;
 }
 .logo-first {
   color: var(--link-color);
@@ -55,8 +82,28 @@ body {
   color: var(--link-color);
 }
 
+/* header flex*/
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+/* menu flex */
+.menu {
+  display: flex;
+  margin-left: 93px;
+}
+
+.menu .item + .item {
+  margin-left: 50px;
+}
+
 .menu .link {
-  color: var(--tittle-text-color);
+  display: block;
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  color: var(--title-text-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.2;
@@ -72,8 +119,24 @@ body {
   color: var(--link-color);
 }
 
+/* контакты флекс */
+.contacts {
+  display: flex;
+  margin-left: auto;
+}
+
+.contacts .item + .item {
+  margin-left: 50px;
+}
+
 .contacts .link {
+  display: block;
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   color: var(--primary-text-color);
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.2;
@@ -90,28 +153,37 @@ body {
 
 .hero {
   background-color: var(--primary-footer-color);
+  text-align: center;
 }
 
-.hero-tittle {
+.hero-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+
   color: var(--primary-white-color);
+
   font-weight: 900;
   font-size: 44px;
   line-height: 1.5;
-  text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 /* button */
 .button {
+  border-radius: 4px;
+  padding: 10px 32px;
+
   color: var(--primary-white-color);
   background-color: var(--link-color);
+
   cursor: pointer;
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.06em;
+  text-align: center;
 }
 
 .button:hover,
@@ -121,29 +193,87 @@ body {
 }
 
 /* sections */
-.section-tittle {
-  color: var(--tittle-text-color);
+.section {
+  display: flex;
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.section.no-padding {
+  padding-top: 0;
+}
+
+.section-title {
+  margin-top: 0;
+
+  color: var(--title-text-color);
+
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
   text-align: center;
 }
 
-.section .tittle {
-  color: var(--tittle-text-color);
+.section .title {
+  color: var(--title-text-color);
 }
 
 /* features */
-.features .tittle {
-  color: var(--tittle-text-color);
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.features .item {
+  width: 270px;
+  margin-right: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.features .item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.features .title,
+.team .title {
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  color: var(--title-text-color);
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
   text-transform: uppercase;
 }
 
-.feature {
+/* .features p {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 30px;
+} */
+
+/* .feature {
   display: none;
+} */
+
+/* about our works */
+.about.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about .item {
+  width: 370px;
+  margin-right: 30px;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.about .item:nth-child(3n) {
+  margin-right: 0;
 }
 
 /* team */
@@ -151,11 +281,22 @@ body {
   background-color: #f5f4fa;
 }
 
-.team .tittle {
-  color: var(--tittle-text-color);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.2;
+.team.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.team > .item {
+  width: 270px;
+  margin-right: 30px;
+  margin-top: 50px;
+  margin-bottom: 0;
+
+  background-color: var(--primary-white-color);
+}
+
+.team .item:nth-child(4n) {
+  margin-right: 0;
 }
 
 .team .description {
@@ -163,13 +304,46 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
+  text-align: center;
+  padding-bottom: 30px;
+  margin: 0;
 }
+
+.team .title {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+/* .item > .title {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  margin: 0;
+} */
+
 /* footer */
 footer {
   background-color: var(--primary-footer-color);
 }
 
 /* footer logo and contacts */
+
+/* .footer {
+padding-bottom: 60px;
+} */
+
+.logo-link.footer {
+  padding-top: 60px;
+  padding-bottom: 0px;
+  margin-bottom: 20px;
+}
+
+.list.footer {
+  display: block;
+  padding-bottom: 60px;
+}
 .logo-web {
   color: var(--link-color);
   font-family: Raleway, sans-serif;
@@ -201,7 +375,7 @@ footer {
 
 /* Portfolio */
 
-/* portfolio menu */
+/* portfolio filters */
 .button-alt {
   font-weight: 500;
   font-size: 16px;
@@ -215,13 +389,22 @@ footer {
   background-color: var(--link-color);
 }
 
-/* portfolio list */
-.project {
-  text-decoration: none;
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+
+  justify-content: center;
 }
 
-.portfolio .tittle {
-  color: var(--tittle-text-color);
+.filters > .item {
+  margin-right: 10px;
+}
+
+/* portfolio list */
+
+.portfolio .title {
+  color: var(--title-text-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
@@ -234,4 +417,38 @@ footer {
   font-weight: 400;
   font-size: 16px;
   line-height: 2;
+}
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project {
+  text-decoration: none;
+}
+.portfolio .item {
+  /* width: calc((100%-60px)/3); */
+  width: 370px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.portfolio .item:nth-last-child(-n + 3) {
+  margin-bottom: 0;
+}
+
+.portfolio .item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.item img {
+  display: block;
+}
+.info {
+  padding-top: 20px;
+  padding-left: 24px;
+  border-bottom: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
 }
